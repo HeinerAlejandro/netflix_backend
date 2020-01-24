@@ -1,0 +1,13 @@
+{% load static %}
+
+
+
+<section id = "{{id}}">
+
+</section>
+
+<link rel="stylesheet" type="text/css" href="{% static 'movies/css/movies.css' %}">
+
+<script type="text/javascript" src="{% static 'movies/js/movies.js' %}">
+	getMoviesByFilter('{{id}}', 'all')
+</script>

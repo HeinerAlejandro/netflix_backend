@@ -1,0 +1,37 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+
+section{
+	display: flex;
+}
+
+.section-max{
+
+	width: 100vw;
+	height: 100vh;
+
+}
+
+.title-header{
+	align-self: center;
+}
+
+.title-header h1, .title-header h2{
+	color: white;
+}
+
+.king-presentation{
+	background-color: #FFABAB;
+}
+
+.img-header{
+
+	width: 475px;
+	height: 361px;
+
+	position: absolute;
+	top : 23.4%;
+	left: 19.9%;
+}

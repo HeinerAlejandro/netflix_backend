@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	{% load static %}
+
+	<title>NETFLIX</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'core/css/base.css' %}">
+
+	<script type="text/javascript" src="{% static 'core/js/common.js' %}"></script>
+</head>
+<body>
+
+	{% block header %}
+
+		<header class = 'section-max king-presentation'>
+
+			{% block icon_to_title %}
+
+			{% endblock %}
+
+			{% block title_header %}
+				<div class = 'title-header'>
+					<h1>Free Series</h1>
+					<h2>una alternativa gratuita para ti</h2>
+				</div>
+			{% endblock %}
+
+			{% block img_header %}
+				
+			{% endblock %} 
+
+			{% block extra_header_element %}
+
+				<svg height="100" width="100">
+						<circle
+							
+							r = '100'
+							fill = "#FFC9DE"
+						/>
+				</svg>
+
+			{% endblock %} 
+
+		</header>
+
+	{% endblock %}
+
+	{% block content %}
+
+		{% include 'movies.html' with filter='recent' id='recent-movies' %}
+
+	{% endblock %}
+
+</body>
+</html>
