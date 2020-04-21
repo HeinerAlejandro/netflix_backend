@@ -1,5 +1,5 @@
 Pillow==7.0.0
 Django==2.2.2
-djangorestframework==3.9.0
+djangorestframework==3.9.1
 django-ckeditor==5.9.0
 django-cors-headers==2.4.0
