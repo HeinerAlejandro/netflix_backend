@@ -22,6 +22,7 @@ from django.views.static import serve
 from core.urls import core_urls
 from movies.urls import movies_url
 from blog.urls import blog_urls
+from service.urls import services_url
 
 
 
@@ -29,7 +30,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(core_urls)),
     path('', include(movies_url)),
-    path('', include(blog_urls))
+    path('', include(blog_urls)),
+    path('', include(services_url))
 ]
 
 from django.conf import settings

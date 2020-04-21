@@ -6,16 +6,19 @@ from django.db.models import F
 
 from rest_framework import reverse
 
-from .fields import DurationField
+
 
 # Create your models here.
 
 def upload_image_movie(instance, file):
 	return 'movies/{0}/{1}'.format(instance.name, file)
 
+def upload_capitule(instance, file):
+	return '{0}/{1}'.format(instance.season.name, file)
+
 class DescriptionData(models.Model):
 
-	name = models.CharField(max_length = 50, verbose_name = 'Nombre')
+	name = models.CharField(max_length = 50, verbose_name = 'Nombre', primary_key = True)
 	description = models.TextField(verbose_name = 'Descripcion')
 
 	date = models.DateTimeField(verbose_name = 'Fecha de publicacion', auto_now_add = True)
@@ -40,7 +43,9 @@ class Season(DescriptionData):
 
 class Capitule(DescriptionData):
 	
-	duration = DurationField()
+	duration = models.CharField(max_length = 5)
+
+	capitule = models.FileField(upload_to = upload_capitule, blank = True, null = True)
 
 	season = models.ForeignKey('Season', verbose_name = 'Temporada', on_delete = models.CASCADE, related_name = 'capitules')
 

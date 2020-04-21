@@ -11,11 +11,7 @@ class CapituleSerializer(serializers.ModelSerializer):
 class SeasonSerializer(serializers.ModelSerializer):
 
 
-	capitules = serializers.HyperlinkedRelatedField(
-		view_name = 'movies:capitule-detail',
-		many = True,
-		read_only = True,
-	)
+	capitules = CapituleSerializer(many = True)
 
 	class Meta:
 
@@ -25,10 +21,8 @@ class SeasonSerializer(serializers.ModelSerializer):
 class SerieSerializer(serializers.HyperlinkedModelSerializer):
 	
 
-	seasons = serializers.HyperlinkedRelatedField(
-		view_name = 'movies:season-detail',
-		many = True,
-		read_only = True,
+	seasons = serializers.HyperlinkedIdentityField(
+		view_name = 'movies:serie-list-seasons',
 		lookup_field = 'name'
 	)
 
@@ -38,7 +32,6 @@ class SerieSerializer(serializers.HyperlinkedModelSerializer):
 		model = Serie
 
 		fields = (
-			'id',
 			'name',
 			'description',
 			'date',
